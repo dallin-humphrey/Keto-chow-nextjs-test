@@ -69,8 +69,8 @@ const LinkCarousel: React.FC = () => {
     const displayedLinks = links.slice(currentPage, currentPage + itemsPerPage);
 
     return (
-        <div className='h-12 border-slate-200 border'>
-            <div className="flex mx-auto flex-row items-center px-8 justify-center w-1/3 h-full">
+        <div className=' h-16 border-slate-200 border'>
+            <div className="flex mx-auto flex-row items-center px-8 justify-center w-1/2 h-full">
                 <button onClick={handleMinusClick}>
                     <div className="h-full cursor-pointer mr-4">
                         <AiOutlineLeft size="1rem" className="curser-pointer text-primary fill-slate-400 hover:fill-slate-900 hover:duration-100 border-slate-900" />
