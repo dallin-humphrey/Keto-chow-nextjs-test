@@ -19,9 +19,9 @@ const ButtonGroup: React.FC<Props> = ({ onAddToBagClick }) => {
     };
 
     return (
-        <div className="flex flex-col w-4/5 mt-6">
+        <div className="flex flex-col w-3/5 mt-6">
             <button
-                className="rounded-full py-3 px-8 bg-black text-white text-lg font-medium transition-opacity hover:opacity-80"
+                className="rounded-full py-3 px-8 bg-black text-white text-lg font-normal transition-opacity hover:opacity-80"
                 onClick={handleAddedToBagClick}
             >
                 Add to Bag
