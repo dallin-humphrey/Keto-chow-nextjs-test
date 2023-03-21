@@ -10,6 +10,9 @@ import shoeSix from "../../public/shoeSix.png";
 import shoeSeven from "../../public/shoeSeven.png";
 import shoeEight from "../../public/shoeEight.png";
 import shoeNine from "../../public/shoeNine.png";
+import ShoeSizeSelector from "./shoeSizeSelector";
+import StyleSelector from "./styleSelector";
+import ButtonGroup from "./buttonGroup";
 
 const ImageColumn: React.FC = (props) => {
     return (
@@ -48,6 +51,9 @@ const ImageColumn: React.FC = (props) => {
                 <div className="text-md text-slate-700 mt-2">
                     $130
                 </div>
+                <StyleSelector />
+                <ShoeSizeSelector />
+                <ButtonGroup onAddToBagClick={() => console.log("Added to cart")} />
             </div>
         </div>
     );
