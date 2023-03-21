@@ -2,6 +2,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+import { AiOutlineSearch } from 'react-icons/ai';
+
 import nikeSwoosh from "../../public/nikeSwoosh.png";
 
 const Header: React.FC = () => {
@@ -30,10 +32,9 @@ const Header: React.FC = () => {
                                 type="text"
                                 className="border border-gray-300 rounded-full pl-10 pr-4 py-2 focus:outline-none focus:border-gray-500"
                                 placeholder="Search"
-                                disabled
                             />
-                            <span className="absolute left-0 top-0 mt-3 ml-3 text-gray-500">
-                                <i className="fas fa-search"></i>
+                            <span className="absolute left-1 top-1 mt-2.5 ml-3 text-gray-500">
+                                <AiOutlineSearch size="1rem" className="curser-pointer text-primary fill-slate-400 hover:fill-slate-900 hover:duration-100" />
                             </span>
                         </div>
                     </div>

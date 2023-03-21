@@ -45,7 +45,7 @@ const ImageColumn: React.FC = (props) => {
                 <div className="text-sm text-slate-700">
                     Men&lsquo;s Shoes
                 </div>
-                <div className="text-md text-slate-700">
+                <div className="text-md text-slate-700 mt-2">
                     $130
                 </div>
             </div>

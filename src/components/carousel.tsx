@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Link from "next/link"
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
+
 const LinkCarousel: React.FC = () => {
     const [currentPage, setCurrentPage] = useState(0);
     const itemsPerPage = 1;
