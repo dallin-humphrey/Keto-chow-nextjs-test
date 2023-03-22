@@ -46,7 +46,7 @@ const ImageColumnCarousel: React.FC = (props) => {
         setCurrentIndex(newIndex);
     };
 
-    const currentImage = thumbnailImages[currentIndex];
+    const currentImage = thumbnailImages[currentIndex] as StaticImageData;
 
     return (
         <div className="flex justify-center mt-6 relative ml-96">
@@ -83,7 +83,7 @@ const ImageColumnCarousel: React.FC = (props) => {
                         Highly Rated
                     </div>
                 </div>
-                <Image className="curser-pointer text-primary fill-slate-400 hover:fill-slate-900 hover:duration-100 border-slate-900" src={currentImage} alt="Shoe" width={380} height={380} />
+                <Image className="curser-pointer text-primary fill-slate-400 hover:fill-slate-900 hover:duration-100 border-slate-900" src={currentImage.src} alt="Shoe" width={380} height={380} />
             </div>
             <div className="col-span-1 flex-col ml-12">
                 <div className="text-2xl text-slate-900">Nike Air Max 90</div>
