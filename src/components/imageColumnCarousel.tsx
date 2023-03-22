@@ -1,6 +1,7 @@
-import React from "react";
-import Image from "next/image";
+import React, { useState } from "react";
+import Image, { StaticImageData } from "next/image";
 import { AiFillStar } from "react-icons/ai";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 import shoeOne from "../../public/shoeOne.png";
 import shoeTwo from "../../public/shoeTwo.png";
@@ -14,48 +15,81 @@ import shoeNine from "../../public/shoeNine.png";
 import ShoeSizeSelector from "./shoeSizeSelector";
 import StyleSelector from "./styleSelector";
 import ButtonGroup from "./buttonGroup";
-import Link from "next/link";
 import Dropdown from "./dropDown";
+import Link from "next/link";
 
-const ImageColumn: React.FC = (props) => {
+const ImageColumnCarousel: React.FC = (props) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const thumbnailImages: StaticImageData[] = [
+        shoeOne,
+        shoeTwo,
+        shoeThree,
+        shoeFour,
+        shoeFive,
+        shoeSix,
+        shoeSeven,
+        shoeEight,
+        shoeNine,
+    ];
+
+    const handleThumbnailClick = (index: number) => {
+        setCurrentIndex(index);
+    };
+
+    const handlePrevButtonClick = () => {
+        const newIndex = currentIndex === 0 ? thumbnailImages.length - 1 : currentIndex - 1;
+        setCurrentIndex(newIndex);
+    };
+
+    const handleNextButtonClick = () => {
+        const newIndex = currentIndex === thumbnailImages.length - 1 ? 0 : currentIndex + 1;
+        setCurrentIndex(newIndex);
+    };
+
+    const currentImage = thumbnailImages[currentIndex];
+
     return (
-        <div className="flex justify-center gap-4 mt-6 relative">
-            <div className="ml-96">
-                <div className="grid gap-4 pl-52 relative">
-                    <div className="flex justify-end absolute top-4 -left-10">
-                        <div className="text-xs flex bg-slate-200 rounded-lg px-2 py-1">
-                            <AiFillStar className="mr-1" size={'1rem'} />Highly Rated
-                        </div>
+        <div className="flex justify-center mt-6 relative ml-96">
+            <div className="flex flex-col items-center mr-4">
+                {thumbnailImages.map((image, index) => (
+                    <div
+                        key={index}
+                        className={`w-12 h-12 relative cursor-pointer my-1 ${currentImage === image ? "ring-2 ring-blue-500" : ""
+                            }`}
+                        onClick={() => handleThumbnailClick(index)}
+                    >
+                        <Image src={image} alt={`Thumbnail ${index}`} layout="fill" objectFit="contain" />
                     </div>
-                    <div className=" flex justify-end">
-                        <Image className="cursor-not-allowed" src={shoeOne} alt="Outside of left shoe" width={320} height={320} />
-                        <Image className="px-4 cursor-pointer" src={shoeTwo} alt="Legs in the shoes" width={320} height={320} />
-                    </div>
-                    <div className="flex justify-end">
-                        <Image className="cursor-not-allowed" src={shoeThree} alt="Bottom of left shoe" width={320} height={320} />
-                        <Image className="px-4 cursor-not-allowed" src={shoeFour} alt="Outside of right shoe" width={320} height={320} />
-                    </div>
-                    <div className="flex justify-end">
-                        <Image className="cursor-not-allowed" src={shoeFive} alt="Top view of both shoes" width={320} height={320} />
-                        <Image className="px-4 cursor-not-allowed" src={shoeSix} alt="Both shoes side by side view is from an angle" width={320} height={320} />
-                    </div>
-                    <div className="flex justify-end">
-                        <Image className="cursor-not-allowed" src={shoeSeven} alt="Both shoes side by side view is from the back" width={320} height={320} />
-                        <Image className="px-4 cursor-not-allowed" src={shoeEight} alt="Zoom in of the front material" width={320} height={320} />
-                    </div>
-                    <div className="flex justify-end">
-                        <Image src={shoeNine} alt="Zoom in of back of left shoe heel" width={320} height={320} />
-                        <Image className="px-4 opacity-0" src={shoeNine} alt="Zoom in of back of left shoe heel" width={320} height={320} />
+                ))}
+            </div>
+            <div className="relative w-96 h-full">
+                <div className="absolute bottom-0 right-10 mr-2 mb-2">
+                    <button className="p-1 bg-slate-50 rounded-full mr-2" onClick={handlePrevButtonClick}>
+                        <AiOutlineLeft
+                            size="1.5rem"
+                            className="curser-pointer text-primary fill-slate-400 hover:fill-slate-900 hover:duration-100 border-slate-900"
+                        />
+                    </button>
+                    <button className="p-1 bg-slate-50 rounded-full mr-2" onClick={handleNextButtonClick}>
+                        <AiOutlineRight
+                            size="1.5rem"
+                            className="curser-pointer text-primary fill-slate-400 hover:fill-slate-900 hover:duration-100 border-slate-900"
+                        />
+                    </button>
+                </div>
+                <div className="flex justify-end absolute top-2 left-2">
+                    <div className="text-xs flex bg-slate-200 rounded-lg px-2 py-1">
+                        <AiFillStar className="mr-1" size={"1rem"} />
+                        Highly Rated
                     </div>
                 </div>
+                <Image className="curser-pointer text-primary fill-slate-400 hover:fill-slate-900 hover:duration-100 border-slate-900" src={currentImage} alt="Shoe" width={380} height={380} />
             </div>
-            <div className="col-span-1 flex-col">
+            <div className="col-span-1 flex-col ml-12">
                 <div className="text-2xl text-slate-900">Nike Air Max 90</div>
                 <div className="text-sm text-slate-700">Men&lsquo;s Shoes</div>
 
-                <div className="text-md text-slate-700 mt-2">
-                    $130
-                </div>
+                <div className="text-md text-slate-700 mt-2">$130</div>
                 <StyleSelector />
                 <ShoeSizeSelector />
                 <ButtonGroup onAddToBagClick={() => console.log("Added to cart")} />
@@ -120,4 +154,6 @@ const ImageColumn: React.FC = (props) => {
     );
 };
 
-export default ImageColumn;
+
+
+export default ImageColumnCarousel;

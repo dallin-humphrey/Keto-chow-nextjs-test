@@ -33,7 +33,7 @@ const StyleSelector: React.FC = () => {
             {styles.map((style) => (
                 <div
                     key={style.id}
-                    className={`w-18 h-12 mx-2 cursor-pointer rounded ${selectedStyle === style.id ? 'border border-slate-500' : ''
+                    className={`w-18 h-18 mx-2 cursor-pointer rounded ${selectedStyle === style.id ? 'border border-slate-500' : ''
                         }`}
                     onClick={() => handleStyleSelect(style.id)}
                 >

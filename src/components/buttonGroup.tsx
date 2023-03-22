@@ -50,6 +50,7 @@ const ButtonGroup: React.FC<Props> = ({ onAddToBagClick }) => {
                     <div className="">{isFavoriteClicked ? '❤️' : '♡'}</div>
                 </div>
             </button>
+
         </div>
     );
 };

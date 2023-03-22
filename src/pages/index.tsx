@@ -3,6 +3,7 @@ import Head from "next/head";
 import LinkCarousel from "~/components/carousel";
 import Header from "~/components/header";
 import ImageColumn from "~/components/imageColumn";
+import ImageColumnCarousel from "~/components/imageColumnCarousel";
 
 
 const Home: NextPage = (props) => {
@@ -17,7 +18,8 @@ const Home: NextPage = (props) => {
       </Head>
       <main>
         <LinkCarousel />
-        <ImageColumn />
+        <ImageColumnCarousel />
+        {/* <ImageColumn /> */}
       </main>
     </>
   );
