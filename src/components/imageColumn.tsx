@@ -59,7 +59,6 @@ const ImageColumn: React.FC = (props) => {
                 <StyleSelector />
                 <ShoeSizeSelector />
                 <ButtonGroup onAddToBagClick={() => console.log("Added to cart")} />
-
                 <div className="text-sm text-slate-700 mt-8 w-3/5 h-48">
                     <div className='text-slate-700 pb-1'>
                         Shipping*
@@ -112,7 +111,6 @@ const ImageColumn: React.FC = (props) => {
                             title="Reviews"
                             items={["Sort by: Newest", "Sort by: Helpful", "View All"]}
                         />
-
                     </div>
                 </div>
             </div>

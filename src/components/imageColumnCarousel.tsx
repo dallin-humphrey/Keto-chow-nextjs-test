@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Image, { StaticImageData } from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
@@ -88,12 +88,10 @@ const ImageColumnCarousel: React.FC = (props) => {
             <div className="col-span-1 flex-col ml-12">
                 <div className="text-2xl text-slate-900">Nike Air Max 90</div>
                 <div className="text-sm text-slate-700">Men&lsquo;s Shoes</div>
-
                 <div className="text-md text-slate-700 mt-2">$130</div>
                 <StyleSelector />
                 <ShoeSizeSelector />
                 <ButtonGroup onAddToBagClick={() => console.log("Added to cart")} />
-
                 <div className="text-sm text-slate-700 mt-8 w-3/5 h-48">
                     <div className='text-slate-700 pb-1'>
                         Shipping*
@@ -146,14 +144,11 @@ const ImageColumnCarousel: React.FC = (props) => {
                             title="Reviews"
                             items={["Sort by: Newest", "Sort by: Helpful", "View All"]}
                         />
-
                     </div>
                 </div>
             </div>
         </div>
     );
 };
-
-
 
 export default ImageColumnCarousel;

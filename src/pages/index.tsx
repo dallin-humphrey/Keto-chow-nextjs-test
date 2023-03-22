@@ -2,7 +2,6 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import LinkCarousel from "~/components/carousel";
 import Header from "~/components/header";
-import ImageColumn from "~/components/imageColumn";
 import ImageColumnCarousel from "~/components/imageColumnCarousel";
 
 

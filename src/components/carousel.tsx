@@ -38,12 +38,10 @@ const LinkCarousel: React.FC = () => {
         </div>
     ];
 
-    // If we want to rotate through 3 options at a time then we use the commented code
     const handleMinusClick = () => {
         if (currentPage === 0) {
             setCurrentPage(links.length - itemsPerPage);
         } else {
-            // setCurrentPage(currentPage - itemsPerPage);
             setCurrentPage(currentPage - 1);
         }
     };
@@ -52,9 +50,7 @@ const LinkCarousel: React.FC = () => {
         if (currentPage + itemsPerPage >= links.length) {
             setCurrentPage(0);
         } else {
-            // setCurrentPage(currentPage + itemsPerPage);
             setCurrentPage(currentPage + 1);
-
         }
     };
 
